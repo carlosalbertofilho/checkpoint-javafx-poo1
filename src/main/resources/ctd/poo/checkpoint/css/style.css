@@ -3,6 +3,27 @@
     -fx-font-size: 30px;
 }
 
+.title-panel {
+    -fx-font-size: 15px;
+    -fx-background-color: #8e7ece;
+}
+
+
+.btnAdicionar {
+    -fx-background-color: #7DCC75;
+    -fx-background-radius: 30;
+    -fx-font-size: 18px;
+}
+
+.btnAdicionar:hover {
+    -fx-background-color: #69C45F;
+}
+
+.btnModule:hover {
+    -fx-background-color: #E7E4F5;
+}
+
+
 .closedBTN {
     -fx-background-color: #ffffff;
     -fx-background-radius: 50;

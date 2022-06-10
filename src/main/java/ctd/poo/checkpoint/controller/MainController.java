@@ -1,13 +1,18 @@
 package ctd.poo.checkpoint.controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class MainController {
     @FXML
@@ -38,17 +43,36 @@ public class MainController {
     private Text lbTitle;
 
     @FXML
+    private AnchorPane mainPane;
+
+    @FXML
+    private BorderPane mainBorderPane;
+
+
+    @FXML
+    void handleDashboard(ActionEvent event) throws IOException {
+        if (event.getSource() == btnDashboard){
+            lbTitle.setText("Dashboard");
+        }
+        try {
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("dashboard.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainBorderPane.setCenter(mainPane);
+    }
+
+    @FXML
     void handleAuthor(ActionEvent event) {
         if (event.getSource() == btnAuthor){
             lbTitle.setText("Créditos");
         }
-    }
-
-    @FXML
-    void handleDashboard(ActionEvent event) {
-        if (event.getSource() == btnDashboard){
-            lbTitle.setText("Dashboard");
+        try {
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("author.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        mainBorderPane.setCenter(mainPane);
     }
 
     @FXML
@@ -56,6 +80,12 @@ public class MainController {
         if (event.getSource() == btnInvoice){
             lbTitle.setText("Pedidos");
         }
+        try {
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("invoice.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainBorderPane.setCenter(mainPane);
     }
 
     @FXML
@@ -63,6 +93,12 @@ public class MainController {
         if (event.getSource() == btnProducts){
             lbTitle.setText("Produtos");
         }
+        try {
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("products.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainBorderPane.setCenter(mainPane);
     }
 
     @FXML
@@ -70,6 +106,12 @@ public class MainController {
         if (event.getSource() == btnUser){
             lbTitle.setText("Usuários");
         }
+        try {
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("user.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainBorderPane.setCenter(mainPane);
     }
 
     @FXML
@@ -81,6 +123,11 @@ public class MainController {
 
     @FXML
     void initialize(){
-
+        try {
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("dashboard.fxml"))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainBorderPane.setCenter(mainPane);
     }
 }
