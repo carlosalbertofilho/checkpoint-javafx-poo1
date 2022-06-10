@@ -1,0 +1,37 @@
+
+.title {
+    -fx-font-size: 30px;
+}
+
+.closedBTN {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50;
+}
+
+.closedBTN:hover {
+    -fx-background-color: #FF7733;
+}
+
+.nav-top {
+    -fx-background-color: #52438F;
+}
+.nav-left {
+    -fx-background-color: #9383d9;
+}
+.footer {
+    -fx-background-color: #2c2742;
+}
+
+.button-nav-left {
+    -fx-background-color: #9383d9;
+}
+
+.button-nav-left:pressed {
+    -fx-background-color: #715600;
+}
+
+.button-nav-left:focused {
+    -fx-background-color: #7D6CCB;
+    -fx-border-color: #CDD1D6;
+    -fx-border-width: 0px 0px 0px 3px;
+}
