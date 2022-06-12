@@ -19,6 +19,15 @@
     -fx-background-color: #69C45F;
 }
 
+.btnCancelar {
+    -fx-background-color: #EC7B61;
+    -fx-background-radius: 30;
+    -fx-font-size: 18px;
+}
+.btnCancelar:hover {
+    -fx-background-color: #F0937E;
+}
+
 .btnModule:hover {
     -fx-background-color: #E7E4F5;
 }
