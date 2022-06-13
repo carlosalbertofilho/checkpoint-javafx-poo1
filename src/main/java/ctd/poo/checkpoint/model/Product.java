@@ -1,6 +1,7 @@
 package ctd.poo.checkpoint.model;
 
 public class Product {
+    private int id;
     private String name;
     private Integer amount;
     private Double price;
@@ -13,11 +14,20 @@ public class Product {
      * @param price preço do produto
      * @param description descrição do produto
      */
-    public Product(String name, Integer amount, Double price, String description) {
+    public Product(int id, String name, Integer amount, Double price, String description) {
+        this.id = id;
         this.name = name;
         this.amount = amount;
         this.price = price;
         this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctd.poo.checkpoint.controller.Product">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctd.poo.checkpoint.controller.Products">
     <BorderPane prefHeight="451.0" prefWidth="742.0">
         <top>
             <VBox prefHeight="52.0" prefWidth="600.0" styleClass="title-panel" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
@@ -31,16 +31,16 @@
             </VBox>
         </top>
       <center>
-         <StackPane fx:id="stackMain" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
                <BorderPane fx:id="bpListProducts" prefHeight="200.0" prefWidth="200.0">
                   <center>
                      <TableView fx:id="tbProducts" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                        <columns>
-                         <TableColumn prefWidth="328.0" text="Nome" />
-                         <TableColumn prefWidth="106.0" text="Quantidade" />
-                           <TableColumn prefWidth="91.0" text="Preço" />
-                           <TableColumn prefWidth="216.0" text="Descrição" />
+                         <TableColumn fx:id="viewName" prefWidth="328.0" text="Nome" />
+                         <TableColumn fx:id="viewAmount" prefWidth="106.0" text="Quantidade" />
+                           <TableColumn fx:id="viewPrice" prefWidth="91.0" text="Preço" />
+                           <TableColumn fx:id="viewDescription" prefWidth="216.0" text="Descrição" />
                        </columns>
                      </TableView>
                   </center>
@@ -48,7 +48,7 @@
                      <HBox alignment="CENTER" prefHeight="47.0" prefWidth="601.0" BorderPane.alignment="CENTER">
                         <children>
                            <TextField fx:id="barSearch" prefHeight="30.0" prefWidth="473.0" promptText="Pesquisar Produtos" />
-                           <Button fx:id="btnAddProducts" mnemonicParsing="false" onAction="#handleBtnAddProducts" prefHeight="24.0" prefWidth="148.0" styleClass="btnAdicionar" text="Adicionar">
+                           <Button fx:id="btnAddProducts" mnemonicParsing="false" prefHeight="24.0" prefWidth="148.0" styleClass="btnAdicionar" text="Adicionar">
                               <HBox.margin>
                                  <Insets left="30.0" />
                               </HBox.margin>
@@ -72,11 +72,16 @@
                            <Label layoutX="38.0" layoutY="96.0" text="Quantidade:" />
                            <TextField fx:id="editAmountProduct" layoutX="59.0" layoutY="115.0" prefHeight="32.0" prefWidth="77.0" />
                            <Label layoutX="194.0" layoutY="96.0" text="Preço:" />
-                           <TextField fx:id="editPriceProduct" layoutX="214.0" layoutY="115.0" prefHeight="32.0" prefWidth="77.0" />
+                           <TextField fx:id="editPriceProduct" layoutX="214.0" layoutY="115.0" prefHeight="32.0" prefWidth="147.0" />
                            <Label layoutX="39.0" layoutY="164.0" text="Descriçao:" />
                            <TextArea fx:id="editDescriptionProduct" layoutX="59.0" layoutY="185.0" prefHeight="200.0" prefWidth="431.0" />
-                           <Button fx:id="btnCancel" layoutX="551.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleBtnCancel" prefHeight="47.0" prefWidth="127.0" styleClass="btnCancelar" text="Cancelar" />
+                           <Button fx:id="btnCancel" layoutX="551.0" layoutY="211.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="127.0" styleClass="btnCancelar" text="Cancelar" />
                            <Button fx:id="btnSave" layoutX="551.0" layoutY="285.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="127.0" styleClass="btnAdicionar" text="Salvar" />
+                           <Label fx:id="spamBtnSave" layoutX="515.0" layoutY="349.0" prefHeight="41.0" prefWidth="197.0" text="Os Campos: Nome, Quantidade, Preço e Descrição são Obrigatórios!" textAlignment="JUSTIFY" textFill="#f20202" visible="false" wrapText="true">
+                              <font>
+                                 <Font size="10.0" />
+                              </font>
+                           </Label>
                         </children>
                      </Pane>
                   </center>

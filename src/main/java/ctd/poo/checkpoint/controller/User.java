@@ -251,37 +251,38 @@ public class User {
 
         btnSave.setOnAction(event -> {
             if(checkEmptyField()) spamBtnSave.setVisible(true);
-            else spamBtnSave.setVisible(false);
-            if(ifPhysicalPerson.isSelected() && !checkEmptyField()){
-                int idPhysicalPerson = physicalUser.size() + 1;
-                PhysicalPerson newUser = new PhysicalPerson( idPhysicalPerson,
-                                            editNameUser.getText(),
-                                            editCPForCNPJUser.getText(),
-                                            editPhoneUser.getText(),
-                                            editAddressUser.getText(),
-                                            editPostalCod.getText(),
-                                            editNumberStreet.getText());
-                physicalUser.add(newUser);
-                loadTableView();
+            else {
+                spamBtnSave.setVisible(false);
+                if(ifPhysicalPerson.isSelected() && !checkEmptyField()){
+                    int idPhysicalPerson = physicalUser.size() + 1;
+                    PhysicalPerson newUser = new PhysicalPerson( idPhysicalPerson,
+                            editNameUser.getText(),
+                            editCPForCNPJUser.getText(),
+                            editPhoneUser.getText(),
+                            editAddressUser.getText(),
+                            editPostalCod.getText(),
+                            editNumberStreet.getText());
+                    physicalUser.add(newUser);
+                    loadTableView();
+                }
+                if(ifLegalPerson.isSelected() && !checkEmptyField()){
+                    int idLegalPerson = legalUser.size() + 1;
+                    LegalPerson newUser = new LegalPerson( idLegalPerson,
+                            editNameUser.getText(),
+                            editCPForCNPJUser.getText(),
+                            editPhoneUser.getText(),
+                            editAddressUser.getText(),
+                            editPostalCod.getText(),
+                            editNumberStreet.getText());
+                    legalUser.add(newUser);
+                }
+                clearFields();
+                bpListUsers.toFront();
+                bpListUsers.setVisible(true);
+                bpEditUser.setVisible(false);
+                labelTitle.setText("Lista de Usuários");
             }
-            if(ifLegalPerson.isSelected() && !checkEmptyField()){
-                int idLegalPerson = legalUser.size() + 1;
-                LegalPerson newUser = new LegalPerson( idLegalPerson,
-                        editNameUser.getText(),
-                        editCPForCNPJUser.getText(),
-                        editPhoneUser.getText(),
-                        editAddressUser.getText(),
-                        editPostalCod.getText(),
-                        editNumberStreet.getText());
-                legalUser.add(newUser);
-            }
-            clearFields();
-            bpListUsers.toFront();
-            bpListUsers.setVisible(true);
-            bpEditUser.setVisible(false);
-            labelTitle.setText("Lista de Usuários");
         });
-
 
 
     }
