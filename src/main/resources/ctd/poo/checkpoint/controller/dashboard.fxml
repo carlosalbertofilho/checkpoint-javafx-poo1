@@ -12,14 +12,13 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctd.poo.checkpoint.controller.Dashboard">
    <BorderPane prefHeight="451.0" prefWidth="742.0">
       <top>
-         <VBox prefHeight="52.0" prefWidth="600.0" styleClass="title-panel" stylesheets="@../css/style.css"
-               BorderPane.alignment="CENTER">
+         <VBox prefHeight="52.0" prefWidth="600.0" styleClass="title-panel" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
             <Text fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha um Módulo:">
                <font>
-                  <Font size="25.0"/>
+                  <Font size="25.0" />
                </font>
                <VBox.margin>
-                  <Insets left="15.0" top="10.0"/>
+                  <Insets left="15.0" top="10.0" />
                </VBox.margin>
             </Text>
          </VBox>
@@ -27,68 +26,65 @@
       <center>
          <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <left>
-               <VBox alignment="CENTER" prefHeight="399.0" prefWidth="250.0" styleClass="btnModule"
-                     BorderPane.alignment="CENTER">
+               <VBox fx:id="btnGoUser" alignment="CENTER" prefHeight="399.0" prefWidth="250.0" styleClass="btnModule" BorderPane.alignment="CENTER">
                   <opaqueInsets>
-                     <Insets/>
+                     <Insets />
                   </opaqueInsets>
                   <BorderPane.margin>
-                     <Insets/>
+                     <Insets />
                   </BorderPane.margin>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes">
                      <font>
-                        <Font size="20.0"/>
+                        <Font size="20.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="15.0"/>
+                        <Insets bottom="15.0" />
                      </VBox.margin>
                   </Text>
                   <ImageView fitHeight="122.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="30.0"/>
+                        <Insets top="30.0" />
                      </VBox.margin>
-                     <Image url="@../icons/user2.png"/>
+                     <Image url="@../icons/user2.png" />
                   </ImageView>
                </VBox>
             </left>
             <center>
-               <VBox alignment="CENTER" prefHeight="400.0" prefWidth="270.0" styleClass="btnModule"
-                     BorderPane.alignment="CENTER">
+               <VBox fx:id="btnGoProduct" alignment="CENTER" prefHeight="400.0" prefWidth="270.0" styleClass="btnModule" BorderPane.alignment="CENTER">
                   <opaqueInsets>
-                     <Insets/>
+                     <Insets />
                   </opaqueInsets>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos">
                      <font>
-                        <Font size="20.0"/>
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <ImageView fitHeight="153.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="25.0"/>
+                        <Insets top="25.0" />
                      </VBox.margin>
-                     <Image url="@../icons/item2.png"/>
+                     <Image url="@../icons/item2.png" />
                   </ImageView>
                </VBox>
             </center>
             <right>
-               <VBox alignment="CENTER" prefHeight="400.0" prefWidth="250.0" styleClass="btnModule"
-                     BorderPane.alignment="CENTER">
+               <VBox fx:id="btnGoInvoice" alignment="CENTER" prefHeight="400.0" prefWidth="250.0" styleClass="btnModule" BorderPane.alignment="CENTER">
                   <opaqueInsets>
-                     <Insets/>
+                     <Insets />
                   </opaqueInsets>
                   <BorderPane.margin>
-                     <Insets/>
+                     <Insets />
                   </BorderPane.margin>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos">
                      <font>
-                        <Font size="20.0"/>
+                        <Font size="20.0" />
                      </font>
                   </Text>
                   <ImageView fitHeight="153.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="30.0"/>
+                        <Insets top="30.0" />
                      </VBox.margin>
-                     <Image url="@../icons/invoice2.png"/>
+                     <Image url="@../icons/invoice2.png" />
                   </ImageView>
                </VBox>
             </right>

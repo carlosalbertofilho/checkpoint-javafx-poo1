@@ -68,7 +68,7 @@
                   <center>
                      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                         <children>
-                           <TextField fx:id="editNameUser" layoutX="48.0" layoutY="58.0" prefHeight="34.0" prefWidth="632.0" />
+                           <TextField fx:id="editNameUser" layoutX="48.0" layoutY="58.0" prefHeight="34.0" prefWidth="632.0" promptText="Mínimo 2, Máximo 15 caracteres" />
                            <Label layoutX="25.0" layoutY="34.0" text="Nome:">
                               <font>
                                  <Font size="14.0" />
@@ -76,14 +76,14 @@
                            </Label>
                            <CheckBox fx:id="ifPhysicalPerson" layoutX="25.0" layoutY="99.0" mnemonicParsing="false" text="Pessoa Física" />
                            <CheckBox fx:id="ifLegalPerson" layoutX="156.0" layoutY="99.0" mnemonicParsing="false" text="Pessoa Jurídica" />
-                           <TextField fx:id="editCPForCNPJUser" layoutX="48.0" layoutY="123.0" prefHeight="34.0" prefWidth="632.0" />
-                           <TextField fx:id="editAddressUser" layoutX="48.0" layoutY="192.0" prefHeight="34.0" prefWidth="632.0" />
+                           <TextField fx:id="editCPForCNPJUser" layoutX="48.0" layoutY="123.0" prefHeight="34.0" prefWidth="632.0" promptText="Escolha Pessoa Física ou Jurídica" />
+                           <TextField fx:id="editAddressUser" layoutX="48.0" layoutY="192.0" prefHeight="34.0" prefWidth="632.0" promptText="Máximo 45 caracteres" />
                            <Label layoutX="25.0" layoutY="167.0" text="Endereço:">
                               <font>
                                  <Font size="14.0" />
                               </font>
                            </Label>
-                           <TextField fx:id="editPhoneUser" layoutX="51.0" layoutY="256.0" prefHeight="34.0" prefWidth="228.0" />
+                           <TextField fx:id="editPhoneUser" layoutX="51.0" layoutY="256.0" prefHeight="34.0" prefWidth="228.0" promptText="(xxx) xxxx-xxxx" />
                            <Label layoutX="25.0" layoutY="237.0" text="Telefone:">
                               <font>
                                  <Font size="14.0" />

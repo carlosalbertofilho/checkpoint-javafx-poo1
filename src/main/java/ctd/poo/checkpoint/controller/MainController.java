@@ -51,9 +51,7 @@ public class MainController {
 
     @FXML
     void handleDashboard(ActionEvent event) throws IOException {
-        if (event.getSource() == btnDashboard){
-            lbTitle.setText("Dashboard");
-        }
+        lbTitle.setText("Dashboard");
         try {
             mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("dashboard.fxml"))));
         } catch (IOException e) {
@@ -64,22 +62,19 @@ public class MainController {
 
     @FXML
     void handleAuthor(ActionEvent event) {
-        if (event.getSource() == btnAuthor){
-            lbTitle.setText("Créditos");
-        }
+        lbTitle.setText("Créditos");
         try {
             mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("author.fxml"))));
         } catch (IOException e) {
             e.printStackTrace();
         }
         mainBorderPane.setCenter(mainPane);
+
     }
 
     @FXML
     void handleInvoice(ActionEvent event) {
-        if (event.getSource() == btnInvoice){
-            lbTitle.setText("Pedidos");
-        }
+        lbTitle.setText("Pedidos");
         try {
             mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("invoice.fxml"))));
         } catch (IOException e) {
@@ -90,9 +85,7 @@ public class MainController {
 
     @FXML
     void handleProducts(ActionEvent event) {
-        if (event.getSource() == btnProducts){
-            lbTitle.setText("Produtos");
-        }
+        lbTitle.setText("Produtos");
         try {
             mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("products.fxml"))));
         } catch (IOException e) {
@@ -103,9 +96,7 @@ public class MainController {
 
     @FXML
     void handleUser(ActionEvent event) {
-        if (event.getSource() == btnUser){
-            lbTitle.setText("Usuários");
-        }
+        lbTitle.setText("Usuários");
         try {
             mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("user.fxml"))));
         } catch (IOException e) {
@@ -116,18 +107,11 @@ public class MainController {
 
     @FXML
     void handleMainClose(ActionEvent event) {
-        if (event.getSource() == btnMainClose){
-            Platform.exit();
-        }
+        Platform.exit();
     }
 
     @FXML
     void initialize(){
-        try {
-            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("dashboard.fxml"))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mainBorderPane.setCenter(mainPane);
+
     }
 }
