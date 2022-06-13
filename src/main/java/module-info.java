@@ -7,4 +7,6 @@ module cdt.poo.checkpoint {
     exports ctd.poo.checkpoint;
     exports ctd.poo.checkpoint.controller;
     opens ctd.poo.checkpoint.controller to javafx.fxml;
+    exports ctd.poo.checkpoint.model;
+    opens ctd.poo.checkpoint.model to javafx.base;
 }

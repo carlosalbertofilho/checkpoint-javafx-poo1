@@ -8,6 +8,7 @@ public class PhysicalPerson extends User {
      *
      * @param id           id do Cliente
      * @param name         Nome do Cliente
+     * @param cpf           CPF do Cliente
      * @param phone        Telefone do Cliente
      * @param street       Logradouro do Cliente
      * @param postalCod    CEP do Cliente

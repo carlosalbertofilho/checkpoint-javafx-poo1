@@ -1,20 +1,23 @@
 package ctd.poo.checkpoint.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import ctd.poo.checkpoint.model.LegalPerson;
 import ctd.poo.checkpoint.model.PhysicalPerson;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -63,51 +66,56 @@ public class User {
     private CheckBox ifPhysicalPerson;
 
     @FXML
-    private TableColumn<?, ?> showAddressUser;
+    private TableColumn<PhysicalPerson, String> showAddressUser;
 
     @FXML
-    private TableColumn<?, ?> showCPForCNPJUser;
+    private TableColumn<PhysicalPerson, String> showCPForCNPJUser;
 
     @FXML
-    private TableColumn<?, ?> showIDUser;
+    private TableColumn<PhysicalPerson, String> showNameUser;
 
     @FXML
-    private TableColumn<?, ?> showNameUser;
+    private TableColumn<PhysicalPerson, String> showPhoneUser;
 
     @FXML
-    private TableColumn<?, ?> showPhoneUser;
+    private TextField editNumberStreet;
+
+    @FXML
+    private TextField editPostalCod;
 
     @FXML
     private StackPane stackMain;
 
     @FXML
-    private TableView<?> tbUsers;
+    private TableView<PhysicalPerson> tbUsers = new TableView<PhysicalPerson>();
 
     @FXML
     private Text labelTitle;
 
-    private List<PhysicalPerson> physicalUser;
+    @FXML
+    private Label spamBtnSave;
+
+    private static final List<PhysicalPerson> physicalUser = new ArrayList<>();
     private ObservableList<PhysicalPerson> observablePhysicalUser;
 
-    private List<LegalPerson> legalUser;
+    private static List<LegalPerson> legalUser = new ArrayList<>();
     private ObservableList<LegalPerson> observableLegalUser;
 
-
-
-    @FXML
-    void handleBtnAddUser(ActionEvent event) {
-        bpEditUser.toFront();
-        bpEditUser.setVisible(true);
-        bpListUsers.setVisible(false);
-        labelTitle.setText("Lista de Usuários > Novo Usuário");
+    public static List<PhysicalPerson> getPhysicalUser() {
+        return physicalUser;
+    }
+    public static List<LegalPerson> getLegalUser() {
+        return legalUser;
     }
 
-    @FXML
-    void handleBtnCancel(ActionEvent event){
-        bpListUsers.toFront();
-        bpListUsers.setVisible(true);
-        bpEditUser.setVisible(false);
-        labelTitle.setText("Lista de Usuários");
+    public void  loadTableView(){
+        showNameUser.setCellValueFactory(new PropertyValueFactory<>("name"));
+        showPhoneUser.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        showAddressUser.setCellValueFactory(new PropertyValueFactory<>("street"));
+        showCPForCNPJUser.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+
+        observablePhysicalUser = FXCollections.observableArrayList(physicalUser);
+        tbUsers.setItems(observablePhysicalUser);
     }
 
     /**
@@ -130,11 +138,51 @@ public class User {
         );
     }
 
+    private boolean checkEmptyField(){
+        return editNameUser.getText().isEmpty() &&
+               editCPForCNPJUser.getText().isEmpty() &&
+               editAddressUser.getText().isEmpty() &&
+               editPhoneUser.getText().isEmpty() &&
+               editNumberStreet.getText().isEmpty() &&
+               editPostalCod.getText().isEmpty();
+    }
+
+    private void clearFields(){
+        editNameUser.setText("");
+        editCPForCNPJUser.setText("");
+        editAddressUser.setText("");
+        editPhoneUser.setText("");
+        editNumberStreet.setText("");
+        editPostalCod.setText("");
+        ifPhysicalPerson.setSelected(false);
+        ifLegalPerson.setSelected(false);
+    }
+
     @FXML
     void initialize(){
         bpListUsers.setVisible(true);
         bpEditUser.setVisible(false);
+        loadTableView();
 
+        /**
+         * Implementa ação para o botão btnAddUser
+         */
+        btnAddUser.setOnAction(event -> {
+            bpEditUser.toFront();
+            bpEditUser.setVisible(true);
+            bpListUsers.setVisible(false);
+            labelTitle.setText("Lista de Usuários > Novo Usuário");
+        });
+
+        /**
+         * Implementa ação para o botão btnCancel
+         */
+        btnCancel.setOnAction(event -> {
+            bpListUsers.toFront();
+            bpListUsers.setVisible(true);
+            bpEditUser.setVisible(false);
+            labelTitle.setText("Lista de Usuários");
+        });
 
         /**
          * Validações para o campo editNameUser
@@ -182,12 +230,59 @@ public class User {
         editAddressUser.setOnAction(event -> {
             validTextField(editAddressUser, 45, "^[a-zA-Z]{5,}+(?:\s[a-zA-Z]+)*");
         });
+
+        /**
+         * Validação para o Campo Cep do Endereço do usuário
+         */
+        editPostalCod.setOnAction(event -> {
+            validTextField(editPostalCod, 9, "^\\d{5}[-]\\d{3}$");
+        });
+
+        editNumberStreet.setOnAction(event -> {
+            validTextField(editNumberStreet, 5, "^\\d{1,5}$");
+        });
+
         /**
          * Validação para o campo de Telefone do usuário
          */
         editPhoneUser.setOnAction(event -> {
-            validTextField(editPhoneUser, 15, "^\\([0-9]{2}\\) [0-9]?[0-9]{4}-[0-9]{4}$");
+            validTextField(editPhoneUser, 15, "^[(]\\d{2}[)] \\d{4,5}[-]\\d{4}$");
         });
+
+        btnSave.setOnAction(event -> {
+            if(checkEmptyField()) spamBtnSave.setVisible(true);
+            else spamBtnSave.setVisible(false);
+            if(ifPhysicalPerson.isSelected() && !checkEmptyField()){
+                int idPhysicalPerson = physicalUser.size() + 1;
+                PhysicalPerson newUser = new PhysicalPerson( idPhysicalPerson,
+                                            editNameUser.getText(),
+                                            editCPForCNPJUser.getText(),
+                                            editPhoneUser.getText(),
+                                            editAddressUser.getText(),
+                                            editPostalCod.getText(),
+                                            editNumberStreet.getText());
+                physicalUser.add(newUser);
+                loadTableView();
+            }
+            if(ifLegalPerson.isSelected() && !checkEmptyField()){
+                int idLegalPerson = legalUser.size() + 1;
+                LegalPerson newUser = new LegalPerson( idLegalPerson,
+                        editNameUser.getText(),
+                        editCPForCNPJUser.getText(),
+                        editPhoneUser.getText(),
+                        editAddressUser.getText(),
+                        editPostalCod.getText(),
+                        editNumberStreet.getText());
+                legalUser.add(newUser);
+            }
+            clearFields();
+            bpListUsers.toFront();
+            bpListUsers.setVisible(true);
+            bpEditUser.setVisible(false);
+            labelTitle.setText("Lista de Usuários");
+        });
+
+
 
     }
 
