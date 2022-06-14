@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Products {
+public class ProductsController {
     @FXML
     private TextField barSearch;
 
@@ -104,9 +104,9 @@ public class Products {
 
     private boolean checkEmptyField(){
         return editNameProduct.getText().isEmpty() &&
-               editPriceProduct.getText().isEmpty() &&
-               editAmountProduct.getText().isEmpty() &&
-               editDescriptionProduct.getText().isEmpty();
+                editPriceProduct.getText().isEmpty() &&
+                editAmountProduct.getText().isEmpty() &&
+                editDescriptionProduct.getText().isEmpty();
     }
 
     @FXML

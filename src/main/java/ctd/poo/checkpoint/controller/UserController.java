@@ -22,7 +22,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
-public class User {
+public class UserController {
     @FXML
     private ResourceBundle resources;
 

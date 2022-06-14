@@ -14,7 +14,13 @@ public class LegalPerson extends User{
      * @param postalCod    CEP da Empresa
      * @param numberStreet Número do logadouro da Empresa
      */
-    public LegalPerson(int id, String name, String cnpj, String phone, String street, String postalCod, String numberStreet) {
+    public LegalPerson(int id,
+                       String name,
+                       String cnpj,
+                       String phone,
+                       String street,
+                       String postalCod,
+                       String numberStreet) {
         super(id, name, phone, street, postalCod, numberStreet);
         setCnpj(cnpj);
     }

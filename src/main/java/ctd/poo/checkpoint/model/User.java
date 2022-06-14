@@ -17,13 +17,29 @@ public abstract class User {
      * @param postalCod CEP do Cliente
      * @param numberStreet Número do logadouro do Cliente
      */
-    public User(int id, String name, String phone, String street, String postalCod, String numberStreet) {
+    public User(int id,
+                String name,
+                String phone,
+                String street,
+                String postalCod,
+                String numberStreet) {
         this.setId(id);
         this.setName(name);
         this.setPhone(phone);
         this.setStreet(street);
         this.setPostalCod(postalCod);
         this.setNumberStreet(numberStreet);
+    }
+
+    /**
+     * Metódo formata o endereço do cliente
+     * @return Endereço do Cliente
+     */
+    public String getAddress(){
+        return "%s , %s , %s".formatted(
+                            getStreet(),
+                            getNumberStreet(),
+                            getPostalCod());
     }
 
     public int getId() {

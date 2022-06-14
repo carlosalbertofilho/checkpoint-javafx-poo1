@@ -19,7 +19,10 @@ public class Invoice {
      * @param physicalUser Se o cliente que fez o pedido é pessoa Física
      * @param items Lista contento o Produto pedido e quantidade do mesmo
      */
-    public Invoice(int id, LocalDate createdAt, PhysicalPerson physicalUser, List<Pair<Product, Integer>> items) {
+    public Invoice(int id,
+                   LocalDate createdAt,
+                   PhysicalPerson physicalUser,
+                   List<Pair<Product, Integer>> items) {
         this.setId(id);
         this.setCreatedAt(createdAt);
         this.setPhysicalUser(physicalUser);
@@ -33,7 +36,10 @@ public class Invoice {
      * @param legalUser Se o cliente que fez o pedido é pessoa Jurídica
      * @param items Lista contento o Produto pedido e quantidade do mesmo
      */
-    public Invoice(int id, LocalDate createdAt,  LegalPerson legalUser, List<Pair<Product, Integer>> items) {
+    public Invoice(int id,
+                   LocalDate createdAt,
+                   LegalPerson legalUser,
+                   List<Pair<Product, Integer>> items) {
         this.setId(id);
         this.setCreatedAt(createdAt);
         this.setLegalUser(legalUser);
