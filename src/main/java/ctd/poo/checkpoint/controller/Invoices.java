@@ -1,4 +1,4 @@
 package ctd.poo.checkpoint.controller;
 
-public class Invoice {
+public class Invoices {
 }

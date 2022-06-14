@@ -2,12 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -17,7 +20,7 @@
     <BorderPane prefHeight="451.0" prefWidth="742.0">
         <top>
             <VBox prefHeight="52.0" prefWidth="600.0" styleClass="title-panel" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
-                <Text fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerência de Usuários">
+                <Text fx:id="labelTitle" fill="#fffefe" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Usuários">
                     <font>
                         <Font size="25.0" />
                     </font>
@@ -30,20 +33,22 @@
         <center>
             <StackPane fx:id="stackMain" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                 <children>
-                    <BorderPane fx:id="bpListUsers" prefHeight="200.0" prefWidth="200.0">
+                    <BorderPane fx:id="bpListUsers" prefHeight="200.0" prefWidth="200.0" visible="false">
                         <center>
                             <TableView fx:id="tbUsers" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="C1" />
-                                    <TableColumn prefWidth="75.0" text="C2" />
+                                    <TableColumn fx:id="showNameUser" prefWidth="308.0" text="Nome" />
+                           <TableColumn fx:id="showCPForCNPJUser" minWidth="0.0" prefWidth="157.0" text="CPF/CNPJ" />
+                           <TableColumn fx:id="showPhoneUser" prefWidth="121.0" text="Telefone" />
+                           <TableColumn fx:id="showAddressUser" prefWidth="155.0" text="Endereço" />
                                 </columns>
                             </TableView>
                         </center>
                         <top>
-                            <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="601.0" BorderPane.alignment="CENTER">
+                            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="601.0" BorderPane.alignment="CENTER">
                                 <children>
                                     <TextField fx:id="barSearch" prefHeight="30.0" prefWidth="473.0" promptText="Pesquisar Usuários" />
-                                    <Button fx:id="btnAddItens" mnemonicParsing="false" prefHeight="24.0" prefWidth="148.0" styleClass="btnAdicionar" text="Adicionar">
+                                    <Button fx:id="btnAddUser" mnemonicParsing="false" prefHeight="24.0" prefWidth="148.0" styleClass="btnAdicionar" text="Adicionar">
                                         <HBox.margin>
                                             <Insets left="30.0" />
                                         </HBox.margin>
@@ -58,6 +63,58 @@
                             </HBox>
                         </top>
                     </BorderPane>
+               <BorderPane fx:id="bpEditUser" prefHeight="200.0" prefWidth="200.0">
+                  <center>
+                     <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <children>
+                           <TextField fx:id="editNameUser" layoutX="48.0" layoutY="58.0" prefHeight="34.0" prefWidth="632.0" promptText="Mínimo 2, Máximo 15 caracteres" />
+                           <Label layoutX="25.0" layoutY="34.0" text="Nome:">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <CheckBox fx:id="ifPhysicalPerson" layoutX="25.0" layoutY="99.0" mnemonicParsing="false" text="Pessoa Física" />
+                           <CheckBox fx:id="ifLegalPerson" layoutX="156.0" layoutY="99.0" mnemonicParsing="false" text="Pessoa Jurídica" />
+                           <TextField fx:id="editCPForCNPJUser" layoutX="48.0" layoutY="123.0" prefHeight="34.0" prefWidth="632.0" promptText="Escolha Pessoa Física ou Jurídica" />
+                           <TextField fx:id="editAddressUser" layoutX="48.0" layoutY="192.0" prefHeight="34.0" prefWidth="632.0" promptText="Máximo 45 caracteres" />
+                           <Label layoutX="25.0" layoutY="167.0" text="Logadouro:">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="editPhoneUser" layoutX="48.0" layoutY="320.0" prefHeight="34.0" prefWidth="130.0" promptText="(xxx) xxxx-xxxx" />
+                           <Label layoutX="20.0" layoutY="301.0" text="Telefone:">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Button fx:id="btnCancel" layoutX="447.0" layoutY="290.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" styleClass="btnCancelar" text="Cancelar" />
+                           <Button fx:id="btnSave" layoutX="581.0" layoutY="290.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" styleClass="btnAdicionar" text="Salvar" />
+                           <Label fx:id="spamBtnSave" layoutX="364.0" layoutY="266.0" text="Campos Nome, CPF ou CNPJ, Endereço e Telefone, Obrigatório!" textFill="#f20303" visible="false">
+                              <font>
+                                 <Font size="10.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="editPostalCod" layoutX="48.0" layoutY="259.0" prefHeight="34.0" prefWidth="126.0" promptText="xxxxx-xxx" />
+                           <Label layoutX="20.0" layoutY="240.0" text="CEP:">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <TextField fx:id="editNumberStreet" layoutX="231.0" layoutY="259.0" prefHeight="34.0" prefWidth="133.0" promptText="Máximo 5 caracteres">
+                              <font>
+                                 <Font size="11.0" />
+                              </font>
+                           </TextField>
+                           <Label layoutX="201.0" layoutY="240.0" text="Numero:">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </Pane>
+                  </center>
+               </BorderPane>
                 </children>
             </StackPane>
         </center>

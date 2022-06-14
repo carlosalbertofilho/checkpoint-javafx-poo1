@@ -19,6 +19,15 @@
     -fx-background-color: #69C45F;
 }
 
+.btnCancelar {
+    -fx-background-color: #EC7B61;
+    -fx-background-radius: 30;
+    -fx-font-size: 18px;
+}
+.btnCancelar:hover {
+    -fx-background-color: #F0937E;
+}
+
 .btnModule:hover {
     -fx-background-color: #E7E4F5;
 }
@@ -55,4 +64,13 @@
     -fx-background-color: #7D6CCB;
     -fx-border-color: #CDD1D6;
     -fx-border-width: 0px 0px 0px 3px;
+}
+
+.text-input:error {
+    -fx-text-fill: white;
+    -fx-border-insets: 0;
+    -fx-border-width: 2px;
+    -fx-border-color: red;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-background-color: derive(red, 99%);
 }
