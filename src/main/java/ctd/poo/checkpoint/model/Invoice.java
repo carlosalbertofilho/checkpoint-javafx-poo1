@@ -3,7 +3,9 @@ package ctd.poo.checkpoint.model;
 import javafx.util.Pair;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Invoice {
     private int id;
@@ -47,6 +49,26 @@ public class Invoice {
         this.setPhysicalUser(null);
     }
 
+    public String getAmountPriceInvoice(){
+        AtomicReference<Double> amountPrice = new AtomicReference<>(0.0);
+        items.forEach((item) ->{
+            amountPrice.updateAndGet(v ->
+                    v + item.getKey().getPrice() * item.getValue());
+        });
+        return "R$ " + amountPrice.get().toString();
+    }
+    public String getCreateAtFormatted(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        return formatter.format(getCreatedAt());
+    }
+    public String  getDeliveryAddress(){
+        return legalUser == null ?
+                physicalUser.getAddress() : legalUser.getAddress();
+    }
+
+    public String getClient(){
+        return legalUser == null ? physicalUser.getName() : legalUser.getName();
+    }
     public int getId() {
         return id;
     }

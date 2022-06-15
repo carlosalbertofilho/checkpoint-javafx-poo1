@@ -90,6 +90,7 @@ public class ProductsController {
         }
     }
 
+
     /**
      * Carregar dados dos Produtos para a tabela tbProducts
      */
@@ -98,7 +99,6 @@ public class ProductsController {
         viewAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         viewPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         viewDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-
         observableListProduct = FXCollections.observableArrayList(listProduct);
         tbProducts.setItems(observableListProduct);
     }

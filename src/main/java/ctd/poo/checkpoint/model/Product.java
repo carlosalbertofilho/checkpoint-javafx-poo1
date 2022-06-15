@@ -1,5 +1,7 @@
 package ctd.poo.checkpoint.model;
 
+import javafx.util.Pair;
+
 public class Product {
     private int id;
     private String name;
@@ -26,9 +28,31 @@ public class Product {
         this.description = description;
     }
 
+    /**
+     * Reduz a quantidade em estoque
+     * @param amount a quantidade que se quer reduzir do produto
+     * @return  uma Lista com o objeto do produto e a quantidade solicitada
+     */
+    public Pair<Product, Integer> debitProduct(Integer amount){
+        if (amount < getAmount())
+            setAmount(getAmount() - amount);
+        return new Pair<>(this, amount);
+    }
+
+    /**
+     * Calcula o preço de determinada quantidade de um produto
+     * @param amount a quantidade que se quer calcular
+     * @return o preço unitário do produto vezes a quantidade
+     */
     public double getAmountPrice(Integer amount){
         return amount * getPrice();
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
+
     public int getId() {
         return id;
     }
