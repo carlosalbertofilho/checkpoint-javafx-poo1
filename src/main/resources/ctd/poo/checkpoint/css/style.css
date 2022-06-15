@@ -28,8 +28,11 @@
     -fx-background-color: #F0937E;
 }
 
+.btnModule {
+    -fx-background-color: #E0DBF4;
+}
 .btnModule:hover {
-    -fx-background-color: #E7E4F5;
+    -fx-background-color: #D8D2F1;
 }
 
 
@@ -64,6 +67,9 @@
     -fx-background-color: #7D6CCB;
     -fx-border-color: #CDD1D6;
     -fx-border-width: 0px 0px 0px 3px;
+}
+.button-nav-left:hover {
+    -fx-background-color: #7D6CCB;
 }
 
 .text-input:error {
