@@ -42,6 +42,11 @@ public abstract class User {
                             getPostalCod());
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
+
     public int getId() {
         return id;
     }

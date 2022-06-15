@@ -108,6 +108,50 @@ public class UserController {
         return legalUser;
     }
 
+    /**
+     * Dados de Teste
+     */
+    public void loadUserTest(){
+        if(physicalUser.size() == 0){
+            PhysicalPerson user1 = new PhysicalPerson(1,
+                    "Carlos Filho",
+                    "123.123.123-09",
+                    "(21) 12345-0982",
+                    "Rua 01",
+                    "12345-098",
+                    "10");
+            physicalUser.add(user1);
+            PhysicalPerson user2 = new PhysicalPerson(2,
+                    "Tchotchoza",
+                    "234.234.234-98",
+                    "(21) 12345-1234",
+                    "Rua 02",
+                    "23456-789",
+                    "15");
+            physicalUser.add(user2);
+        }
+        if(legalUser.size() == 0){
+            LegalPerson user3 = new LegalPerson(1,
+                    "XPTO",
+                    "12.123.123/0001-01",
+                    "(21) 12345-0987",
+                    "Rua 10",
+                    "54321-098",
+                    "25");
+            legalUser.add(user3);
+            LegalPerson user4 = new LegalPerson(1,
+                    "Contoso",
+                    "32.123.123/0001-01",
+                    "(21) 34567-0987",
+                    "Rua 30",
+                    "76543-098",
+                    "55");
+            legalUser.add(user4);
+        }
+    }
+    /**
+     * Carregar dados do usuário Pessoa Física para a tabela
+     */
     public void  loadTableView(){
         showNameUser.setCellValueFactory(new PropertyValueFactory<>("name"));
         showPhoneUser.setCellValueFactory(new PropertyValueFactory<>("phone"));
@@ -162,6 +206,7 @@ public class UserController {
     void initialize(){
         bpListUsers.setVisible(true);
         bpEditUser.setVisible(false);
+        loadUserTest();
         loadTableView();
 
         /**

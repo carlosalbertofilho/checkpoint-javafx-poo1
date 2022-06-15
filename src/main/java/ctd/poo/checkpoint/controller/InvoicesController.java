@@ -119,6 +119,7 @@ public class InvoicesController {
         bpEditProduct.setVisible(false);
 
 
+
         btnAddInvoice.setOnAction(event -> {
             bpListInvoices.setVisible(false);
             bpEditProduct.setVisible(true);
@@ -144,6 +145,9 @@ public class InvoicesController {
             } else ifPhysicalPerson.setDisable(false);
         });
 
+        selectClient.setOnAction(event -> {
+            loadPhysicalPerson();
+        });
 
     }
 }

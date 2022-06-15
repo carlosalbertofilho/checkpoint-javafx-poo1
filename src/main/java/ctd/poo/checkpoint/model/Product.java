@@ -14,7 +14,11 @@ public class Product {
      * @param price preço do produto
      * @param description descrição do produto
      */
-    public Product(int id, String name, Integer amount, Double price, String description) {
+    public Product(int id,
+                   String name,
+                   Integer amount,
+                   Double price,
+                   String description) {
         this.id = id;
         this.name = name;
         this.amount = amount;
@@ -22,6 +26,9 @@ public class Product {
         this.description = description;
     }
 
+    public double getAmountPrice(Integer amount){
+        return amount * getPrice();
+    }
     public int getId() {
         return id;
     }
