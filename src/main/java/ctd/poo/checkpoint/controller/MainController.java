@@ -22,87 +22,50 @@ public class MainController {
     private URL location;
 
     @FXML
-    private Button btnAuthor;
-
-    @FXML
-    private Button btnDashboard;
-
-    @FXML
-    private Button btnInvoice;
-
-    @FXML
-    private Button btnProducts;
-
-    @FXML
-    private Button btnUser;
-
-    @FXML
-    private Button btnMainClose;
-
-    @FXML
     private Text lbTitle;
 
     @FXML
     private AnchorPane mainPane;
 
     @FXML
-    private BorderPane mainBorderPane;
-
+    private AnchorPane defaultPane;
 
     @FXML
-    void handleDashboard(ActionEvent event) throws IOException {
-        lbTitle.setText("Dashboard");
+    private BorderPane mainBorderPane;
+
+    private void handleGeneric(String mainTitle, String view){
+        lbTitle.setText(mainTitle);
         try {
-            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("dashboard.fxml"))));
+            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource((view))));
         } catch (IOException e) {
             e.printStackTrace();
         }
         mainBorderPane.setCenter(mainPane);
+    }
+
+    @FXML
+    void handleDashboard(ActionEvent event) throws IOException {
+        mainBorderPane.setCenter(defaultPane);
     }
 
     @FXML
     void handleAuthor(ActionEvent event) {
-        lbTitle.setText("Créditos");
-        try {
-            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("author.fxml"))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mainBorderPane.setCenter(mainPane);
-
+        handleGeneric("Créditos", "author.fxml");
     }
 
     @FXML
     void handleInvoice(ActionEvent event) {
-        lbTitle.setText("Pedidos");
-        try {
-            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("invoice.fxml"))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mainBorderPane.setCenter(mainPane);
+        handleGeneric("Pedidos", "invoice.fxml");
     }
 
     @FXML
     void handleProducts(ActionEvent event) {
-        lbTitle.setText("Produtos");
-        try {
-            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("products.fxml"))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mainBorderPane.setCenter(mainPane);
+        handleGeneric("Produtos", "products.fxml");
     }
 
     @FXML
     void handleUser(ActionEvent event) {
-        lbTitle.setText("Usuários");
-        try {
-            mainPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(("user.fxml"))));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mainBorderPane.setCenter(mainPane);
+        handleGeneric("Usuários", "user.fxml");
     }
 
     @FXML
@@ -112,6 +75,6 @@ public class MainController {
 
     @FXML
     void initialize(){
-
+        defaultPane.toFront();
     }
 }
