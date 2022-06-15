@@ -68,6 +68,31 @@ public class ProductsController {
     private static List<Product> listProduct = new ArrayList<>();
     private ObservableList<Product> observableListProduct;
 
+    /**
+     * Carrega Dados de teste da aplicação
+     */
+    private void loadDataTest(){
+        if (listProduct.size() == 0){
+            Product produto1 = new Product(
+                    1,
+                    "Vidro Float",
+                    100,
+                    250.40,
+                    "Vidro Temperado 1m²");
+            listProduct.add(produto1);
+            Product produto2 = new Product(
+                    1,
+                    "Vidro Float Fumê",
+                    50,
+                    299.00,
+                    "Vidro Temperado 1m²");
+            listProduct.add(produto2);
+        }
+    }
+
+    /**
+     * Carregar dados dos Produtos para a tabela tbProducts
+     */
     private void loadTableView(){
         viewName.setCellValueFactory(new PropertyValueFactory<>("name"));
         viewAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
@@ -113,6 +138,7 @@ public class ProductsController {
     void initialize(){
         bpListProducts.setVisible(true);
         bpAddProduct.setVisible(false);
+        loadDataTest();
         loadTableView();
 
         /**

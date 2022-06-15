@@ -111,7 +111,7 @@ public class UserController {
     /**
      * Dados de Teste
      */
-    public void loadUserTest(){
+    private void loadUserTest(){
         if(physicalUser.size() == 0){
             PhysicalPerson user1 = new PhysicalPerson(1,
                     "Carlos Filho",
@@ -152,7 +152,7 @@ public class UserController {
     /**
      * Carregar dados do usuário Pessoa Física para a tabela
      */
-    public void  loadTableView(){
+    private void  loadTableView(){
         showNameUser.setCellValueFactory(new PropertyValueFactory<>("name"));
         showPhoneUser.setCellValueFactory(new PropertyValueFactory<>("phone"));
         showAddressUser.setCellValueFactory(new PropertyValueFactory<>("street"));
